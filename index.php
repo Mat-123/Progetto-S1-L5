@@ -37,8 +37,8 @@ include __DIR__ . '/includes/navbar.php'; ?>
         echo "<p class='card-text'>Genere: $row[genere]</p>";
         echo '</div>';
         echo "<div class='d-flex justify-content-between mt-3'>";
-        echo "<a href='edit.php?id=" . $row["id"] . "' class='btn btn-primary'>Edit</a>";
-        echo "<a href='?delete=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete the book: " . $row["titolo"] . "?\")'>Delete</a>";
+        echo "<a href='edit.php?id=" . $row["id"] . "' class='btn btn-primary'>Modifica</a>";
+        echo "<a href='?delete=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete the book: " . $row["titolo"] . "?\")'>Elimina</a>";
         echo '</div>';
         echo '</div>';
         echo '</div>';

@@ -62,8 +62,8 @@ include __DIR__ . '/includes/navbar.php'; ?>
                 <input type="text" id="genere" name="genere" class="form-control" value="<?php echo $user['genere']; ?>">
             </div>
             <div class="d-flex justify-content-between">
-                <a href="index.php" class="btn btn-secondary mt-3">ANNULLA</a>
-                <button type="submit" class="btn btn-warning mt-3">EDIT</button>
+                <a href="index.php" class="btn btn-secondary mt-3">Annulla</a>
+                <button type="submit" class="btn btn-warning mt-3">Modifica</button>
             </div>
         </form>
     </div>

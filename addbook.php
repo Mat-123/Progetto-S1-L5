@@ -62,7 +62,10 @@ include __DIR__ . '/includes/navbar.php';
                 <label for="genere">Genere:</label>
                 <input type="text" id="genere" name="genere" class="form-control" value="<?php echo isset($_POST['genere']) ? htmlspecialchars($_POST['genere']) : ''; ?>" required>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <div class="d-flex justify-content-between">
+                <a href="index.php" class="btn btn-secondary mt-3">Annulla</a>
+                <button type="submit" class="btn btn-primary mt-3">Aggiungi</button>
+            </div>
         </form>
     </div>
 </div>

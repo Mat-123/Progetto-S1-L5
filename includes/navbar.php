@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Amazing Zone Books!</a>
+        <a class="navbar-brand" href="index.php">Amazing Zone Books!</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,12 +10,12 @@
                     <a class="nav-link" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addbook.php">Add Book</a>
+                    <a class="nav-link" href="addbook.php">Aggiungi Libro</a>
                 </li>
             </ul>
             <form class="d-flex" method="GET" action="index.php">
                 <input type="text" class="form-control me-2" aria-label="Search" name="search" placeholder="Cerca libro, autore, genere..." value="<?php echo htmlspecialchars($search); ?>">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" type="submit">Cerca</button>
             </form>
         </div>
     </div>
