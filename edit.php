@@ -41,7 +41,7 @@ include __DIR__ . '/includes/html.php';
 include __DIR__ . '/includes/navbar.php'; ?>
 
 <div class="row">
-    <div class="col-md-8 col-sx-12 mx-auto">
+    <div class="col-md-6 col-sx-12 mx-auto">
 
         <form action="edit.php" method="post">
             <input type="hidden" name="id" value="<?php echo $user['id']; ?>">

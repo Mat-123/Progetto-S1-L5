@@ -27,7 +27,8 @@ include __DIR__ . '/includes/navbar.php'; ?>
 
     <?php
     foreach ($stmt as $row) {
-        echo '<div class="card col-lg-4 col-md-6 col-xs-12 mt-2">';
+        echo '<div class="col-lg-4 col-md-6 col-xs-12 g-3">';
+        echo '<div class="card mt-2 h-100">';
         echo '<div class="card-body d-flex flex-column justify-content-between">';
         echo '<div>';
         echo "<h5 class='card-title'>$row[titolo]</h5>";
@@ -38,6 +39,7 @@ include __DIR__ . '/includes/navbar.php'; ?>
         echo "<div class='d-flex justify-content-between mt-3'>";
         echo "<a href='edit.php?id=" . $row["id"] . "' class='btn btn-primary'>Edit</a>";
         echo "<a href='?delete=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete the book: " . $row["titolo"] . "?\")'>Delete</a>";
+        echo '</div>';
         echo '</div>';
         echo '</div>';
         echo '</div>';

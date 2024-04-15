@@ -37,7 +37,7 @@ include __DIR__ . '/includes/navbar.php';
     </div>
 <?php endif; ?>
 <div class="row">
-    <div class="col-md-8 col-sx-12 mx-auto">
+    <div class="col-md-6 col-sx-12 mx-auto">
         <form action="addbook.php" method="post" class="needs-validation" novalidate>
             <?php if (!empty($errors)) : ?>
                 <div class="alert alert-danger" role="alert">
