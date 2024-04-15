@@ -40,29 +40,34 @@ include __DIR__ . '/includes/html.php';
 
 include __DIR__ . '/includes/navbar.php'; ?>
 
-<form action="edit.php" method="post">
-    <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-    <div class="form-group">
-        <label for="titolo">Titolo:</label>
-        <input type="text" id="titolo" name="titolo" class="form-control" value="<?php echo $user['titolo']; ?>">
+<div class="row">
+    <div class="col-md-8 col-sx-12 mx-auto">
+
+        <form action="edit.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+            <div class="form-group">
+                <label for="titolo">Titolo:</label>
+                <input type="text" id="titolo" name="titolo" class="form-control" value="<?php echo $user['titolo']; ?>">
+            </div>
+            <div class="form-group">
+                <label for="autore">Autore:</label>
+                <input type="text" id="autore" name="autore" class="form-control" value="<?php echo $user['autore']; ?>">
+            </div>
+            <div class="form-group">
+                <label for="anno_pubblicazione">Anno di pubblicazione:</label>
+                <input type="text" id="anno_pubblicazione" name="anno_pubblicazione" class="form-control" value="<?php echo $user['anno_pubblicazione']; ?>">
+            </div>
+            <div class="form-group">
+                <label for="genere">Genere:</label>
+                <input type="text" id="genere" name="genere" class="form-control" value="<?php echo $user['genere']; ?>">
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="index.php" class="btn btn-secondary mt-3">ANNULLA</a>
+                <button type="submit" class="btn btn-warning mt-3">EDIT</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="autore">Autore:</label>
-        <input type="text" id="autore" name="autore" class="form-control" value="<?php echo $user['autore']; ?>">
-    </div>
-    <div class="form-group">
-        <label for="anno_pubblicazione">Anno di pubblicazione:</label>
-        <input type="text" id="anno_pubblicazione" name="anno_pubblicazione" class="form-control" value="<?php echo $user['anno_pubblicazione']; ?>">
-    </div>
-    <div class="form-group">
-        <label for="genere">Genere:</label>
-        <input type="text" id="genere" name="genere" class="form-control" value="<?php echo $user['genere']; ?>">
-    </div>
-    <div class="d-flex justify-content-between">
-        <a href="index.php" class="btn btn-secondary mt-3">ANNULLA</a>
-        <button type="submit" class="btn btn-warning mt-3">EDIT</button>
-    </div>
-</form>
+</div>
 
 <?php
 
