@@ -28,13 +28,16 @@ include __DIR__ . '/includes/navbar.php'; ?>
     <?php
     foreach ($stmt as $row) {
         echo '<div class="card col-lg-4 col-md-6 col-xs-12 mt-2">';
-        echo '<div class="card-body">';
+        echo '<div class="card-body d-flex flex-column justify-content-between">';
+        echo '<div>';
         echo "<h5 class='card-title'>$row[titolo]</h5>";
-        echo "<h6 class='card-subtitle mb-2 text-body-secondary'>$row[autore]</h6>";
-        echo "<p class='card-text'>Anno di pubblicazione: $row[anno_pubblicazione] - Genere: $row[genere]</p>";
-        echo "<div class='d-flex justify-content-between'>";
+        echo "<h6 class='card-subtitle mb-3 text-body-secondary'>$row[autore]</h6>";
+        echo "<p class='card-text mb-1'>Anno di pubblicazione: $row[anno_pubblicazione]</p>";
+        echo "<p class='card-text'>Genere: $row[genere]</p>";
+        echo '</div>';
+        echo "<div class='d-flex justify-content-between mt-3'>";
         echo "<a href='edit.php?id=" . $row["id"] . "' class='btn btn-primary'>Edit</a>";
-        echo "<a href='?delete=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete user with ID: " . $row["id"] . "?\")'>Delete</a>";
+        echo "<a href='?delete=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete the book: " . $row["titolo"] . "?\")'>Delete</a>";
         echo '</div>';
         echo '</div>';
         echo '</div>';

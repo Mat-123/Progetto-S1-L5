@@ -9,4 +9,4 @@
 
 </head>
 
-<body>
+<body class="bg-warning-subtle">

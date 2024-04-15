@@ -2,6 +2,9 @@
 
 include __DIR__ . '/includes/db.php';
 
+$errors = [];
+$success = false;
+
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $id = $_GET['id'];
     $stmt = $pdo->prepare("SELECT * FROM libri WHERE id = ?");
@@ -9,14 +12,27 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $user = $stmt->fetch();
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
-    $titolo = $_POST['titolo'];
-    $autore = $_POST['autore'];
-    $anno = $_POST['anno_pubblicazione'];
-    $genere = $_POST['genere'];
-    $stmt = $pdo->prepare("UPDATE libri SET titolo = ?, autore = ?, anno_pubblicazione = ?, genere = ? WHERE id = ?");
-    $stmt->execute([$titolo, $autore, $anno, $genere, $id]);
-    header("Location: index.php");
-    exit;
+    $titolo = htmlspecialchars($_POST['titolo']);
+    $autore = htmlspecialchars($_POST['autore']);
+    $anno = filter_input(INPUT_POST, 'anno_pubblicazione', FILTER_VALIDATE_INT);
+    $genere = htmlspecialchars($_POST['genere']);
+
+    if (empty($titolo) || empty($autore) || empty($genere)) {
+        $errors[] = "Tutti i campi sono obbligatori.";
+    } else {
+        if (strlen((string)$anno) > 4) {
+            $errors[] = "L'anno di pubblicazione non puo' avere piu' di 4 cifre.";
+        }
+    }
+
+    if (empty($errors)) {
+        $stmt = $pdo->prepare("UPDATE libri SET titolo = ?, autore = ?, anno_pubblicazione = ?, genere = ? WHERE id = ?");
+        $stmt->execute([$titolo, $autore, $anno, $genere, $id]);
+        echo "<script>alert('Data successfully updated!');</script>";
+        $success = true;
+        echo "<script>window.location = 'index.php';</script>";
+        exit;
+    }
 }
 
 
@@ -42,7 +58,10 @@ include __DIR__ . '/includes/navbar.php'; ?>
         <label for="genere">Genere:</label>
         <input type="text" id="genere" name="genere" class="form-control" value="<?php echo $user['genere']; ?>">
     </div>
-    <button type="submit" class="btn btn-primary mt-3">EDIT</button>
+    <div class="d-flex justify-content-between">
+        <a href="index.php" class="btn btn-secondary mt-3">ANNULLA</a>
+        <button type="submit" class="btn btn-warning mt-3">EDIT</button>
+    </div>
 </form>
 
 <?php
